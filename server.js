@@ -1,9 +1,11 @@
 const express = require('express');
-const expressLayout = require('express-ejs-layouts');
+const app = express();
 const ejs = require('ejs');
 const path = require('path');
-const app = express();
+const expressLayout = require('express-ejs-layouts');
 
+//Assets
+app.use(express.static('public'))
 app.get('/',(req,res)=>{
     res.render('home')
 })
@@ -13,5 +15,5 @@ app.set('views',path.join(__dirname,'/resources/views'));
 app.set('view engine','ejs')
 
 app.listen(3000, ()=>{
-    console.log('Listening on port 3000');
-})
+    console.log('Hello from server')
+});
